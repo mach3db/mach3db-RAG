@@ -10,7 +10,7 @@ from phi.utils.log import logger
 from assistant import get_rag_assistant  # type: ignore
 
 st.set_page_config(
-    page_title="Local RAG",
+    page_title="Mach3db RAG",
     page_icon=":orange_heart:",
 )
 
@@ -27,7 +27,7 @@ def restart_assistant():
 
 def main() -> None:
     # Get model
-    rag_model = st.sidebar.selectbox("Select Model", options=["llama3", "llama3:70b", "openhermes", "llama2"])
+    rag_model = st.sidebar.selectbox("Select Model", options=["exaone3.5:32b"])
     # Set assistant_type in session state
     if "rag_model" not in st.session_state:
         st.session_state["rag_model"] = rag_model
