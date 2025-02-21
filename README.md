@@ -1,7 +1,10 @@
-# Local LLM with Ollama & PgVector 🤖
-Credits go to Phidata for providing local rigging scripts and repository.<br/>
-Link to [Llama-3-8B](https://huggingface.co/meta-llama/Meta-Llama-3-8B) 🦙<br/>
-Link to [Llama-3-70B](https://huggingface.co/meta-llama/Meta-Llama-3-70B) 🦙🔥
+### Run an LLM on your machine...
+### But store its vector database on mach3db!
+<br>
+We use exaone3.5:32b as our default LLM:
+<br><br>
+
+[exaone3.5:32b](https://ollama.com/library/exaone3.5:32b) <br><br>
 
 ### 1. [Install](https://github.com/ollama/ollama?tab=readme-ov-file#macos) Ollama and run model
 
@@ -11,16 +14,10 @@ Install Ollama
 curl -fsSL https://ollama.com/install.sh | sh
 ```
 
-Run and pull manifest of your preferred Llama3 model
+Run and pull manifest of your preferred LLM model
 
 ```shell
-ollama run llama3 'Hey!'
-```
-
-- And/or Llama3 70b
-
-```shell
-ollama run llama3:70b 'Hey!'
+ollama run exaone3.5:32b 'Hey!'
 ```
 
 You can find more LLM's [here](https://ollama.com/library), adjust app.py accordingly.
@@ -38,23 +35,8 @@ source ~/.venvs/aienv/bin/activate
 pip install -r package.txt
 ```
 
-### 4. Run PgVector
-
-> Install [docker desktop](https://docs.docker.com/desktop/install/mac-install/)
-
-- Run using this script
-
-```shell
-docker run -d \
-  -e POSTGRES_DB=ai \
-  -e POSTGRES_USER=ai \
-  -e POSTGRES_PASSWORD=ai \
-  -e PGDATA=/var/lib/postgresql/data/pgdata \
-  -v pgvolume:/var/lib/postgresql/data \
-  -p 5532:5432 \
-  --name pgvector \
-   phidata/pgvector:16
-```
+### 4. edit assistant.py line 10 and add your mach3db username and password. 
+Make sure to contact james@mach3db.com to have the pgvector extension enabled for your mach3db database.
 
 ### 5. Run RAG app
 
