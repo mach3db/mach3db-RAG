@@ -35,7 +35,7 @@ source ~/.venvs/aienv/bin/activate
 pip install -r package.txt
 ```
 
-### 4. edit assistant.py line 10 and add your mach3db username and password. 
+### 4. edit assistant.py line 10 and add your mach3db username and password
 Make sure to contact james@mach3db.com to have the pgvector extension enabled for your mach3db database.
 
 ### 5. Run RAG app
